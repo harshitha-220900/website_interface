@@ -1,0 +1,27 @@
+.external table {
+    background-color: rgb(3, 61, 61);
+    border-collapse: collapse;
+    border: 1px solid white;
+    align-items: center;
+    margin: auto;
+}
+
+.external td,
+th {
+    color: white;
+    padding: 8px;
+    border: 1px solid powderblue;
+    text-align: center;
+}
+
+.external caption {
+    font-size: 18px;
+    color: white;
+}
+
+.external tr:hover {
+    background-color: rgb(12, 97, 97);
+    cursor: pointer;
+    transition: 0.3s;
+    transform: scale(1.02);
+}

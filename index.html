@@ -5,6 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Anime Stream</title>
+    <link rel="stylesheet " href="external.css" />
     <style>
         body {
             background-color: rgb(4, 97, 97);
@@ -57,6 +58,38 @@
         }
         
         nav a:hover {
+            color: white;
+        }
+        
+        .nav-form {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        
+        .nav-form select {
+            padding: 6px;
+            border-radius: 5px;
+            border: none;
+            background-color: white;
+        }
+        
+        .nav-form input {
+            padding: 6px;
+            border-radius: 5px;
+            border: none;
+            background-color: white;
+        }
+        
+        .nav-form button {
+            padding: 10px 15px;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+        }
+        
+        .nav-form button:hover {
+            background-color: #1a1c1d;
             color: white;
         }
         
@@ -190,6 +223,34 @@
             width: 100%;
             height: 100%;
         }
+        
+        .internal table {
+            position: relative;
+            top: 0;
+            left: 0;
+            opacity: 1;
+            color: powderblue;
+            width: 90%;
+            height: 100%;
+            margin: 40px auto;
+            border-collapse: collapse;
+            background-color: rgb(3, 61, 61);
+        }
+        
+        .internal th,
+        td {
+            border: 1px solid powderblue;
+            padding: 12px;
+            text-align: center;
+        }
+        
+        .internal th {
+            font-style: bold;
+        }
+        
+        .internal tr:hover {
+            background-color: #1a1c1d;
+        }
     </style>
 </head>
 
@@ -197,46 +258,56 @@
     <header>
         <div class="logo">An!mStream</div>
         <nav>
-            <a href="#">Home </a><a href="#">Genres</a><a href="#">Top Anime</a
-        ><a href="#">My List</a>
+            <a href="login.html">Home </a>
+            <a href="# ">Top Anime</a><a href="# ">My List</a>
         </nav>
+        <form class="nav-form">
+            <select>
+          <option value="">Genres</option>
+          <option value="action">Action</option>
+          <option value="adventure">Adventure</option>
+          <option value="comedy">Comedy</option>
+          <option value="drama">Drama</option>
+          <option value="fantasy">Fantasy</option>
+          <option value="horror">Horror</option>
+        </select>
+            <input type="text" placeholder="Search anime..." />
+            <button type="submit">GO</button>
+        </form>
     </header>
     <section class="hero">
         <h1>WATCH ANIME ONLINE</h1>
         <p>EXPLORE THE LATEST AND GREATEST ANIME SERIES</p>
-        <div class="hero-search">
-            <input type="text" placeholder="Search anime..." />
-        </div>
     </section>
 
     <section class="section">
         <h2>TRENDING ANIME</h2>
         <div class="grid">
             <div class="card">
-                <img src="onepiece.jpg " width="150" />
+                <img src="onepiece.jpg " width="150 " />
                 <a href="# ">ONE PIECE</a>
                 <p class="genre">Action • Adventure</p>
                 <audio controls>
-            <source src="onepiece.mpeg" type="audio/mpeg" />
+            <source src="onepiece.mpeg " type="audio/mpeg " />
           </audio>
             </div>
             <div class="card">
-                <img src="naruto.jpg " width="150" />
+                <img src="naruto.jpg " width="150 " />
                 <div class="card-content">
                     <a href="# ">NARUTO:CLASSIC</a>
                     <p class="genre">Action • Ninja</p>
                 </div>
                 <video class="naruto-video" controls muted>
-            <source src="Blue_bird.mp4" type="video/mp4" />
+            <source src="Blue_bird.mp4 " type="video/mp4 " />
           </video>
             </div>
             <div class="card">
-                <img src="images.jpg " width="150" />
+                <img src="images.jpg " width="150 " />
                 <a href="# ">NARUTO:SHUPPIDEN</a>
                 <p class="genre">Action • Drama</p>
             </div>
             <div class="card">
-                <img src="download.jpg " width="150" />
+                <img src="download.jpg " width="150 " />
                 <a href=" # ">DEMON SLAYER</a>
                 <p class="genre">Action • Adventure</p>
             </div>
@@ -266,9 +337,147 @@
     <section class="section">
         <h2>INTRO SONG OF DEMONSLAYER</h2>
         <div class="video-featured">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/pmanD_s7G3U?si=92G1s1VbgqJ4hPmI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe width="560 " height="315 " src="https://www.youtube.com/embed/pmanD_s7G3U?si=92G1s1VbgqJ4hPmI " title="YouTube video player " frameborder="0 " allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;
+        web-share " referrerpolicy="strict-origin-when-cross-origin " allowfullscreen></iframe>
         </div>
+    </section>
+    <section class="internal">
+        <table>
+            <tr>
+                <th>
+                    <u>ANIME</u>
+                </th>
+                <th><u>RATING</u></th>
+                <th><u>GENRE</u></th>
+                <th><u>DIRECTOR</u></th>
+            </tr>
+            <tr>
+                <td>NARUTO:CLASSIC</td>
+                <td>9.5</td>
+                <td>NINJA</td>
+                <td>HAYATO DATE</td>
+            </tr>
+            <tr>
+                <td>NARUTO:SHUPPIDEN</td>
+                <td>9.5</td>
+                <td>NINJA</td>
+                <td>HAYATO DATE</td>
+            </tr>
+            <tr>
+                <td>DEMON SLAYER</td>
+                <td>9.5</td>
+                <td>ACTION,ADVENTURE</td>
+                <td>HARUO SOTOZAKI</td>
+            </tr>
+            <tr>
+                <td>DEATH NOTE</td>
+                <td>8.5</td>
+                <td>THRILLER</td>
+                <td>HAYATO DATE</td>
+            </tr>
+            <tr>
+                <td>ATTACK ON TITANS</td>
+                <td>10</td>
+                <td>ADVENTURE</td>
+                <td>HAYATO DATE</td>
+            </tr>
+            <tr>
+                <td>TOPOKI:ORIGINAL SINS</td>
+                <td>9.5</td>
+                <td>THRILLER</td>
+                <td>HAYATO DATE</td>
+            </tr>
+            <caption>
+                <h2><u>ANIME RATINGS OVERVIEW</u></h2>
+            </caption>
+        </table>
+    </section>
+    <table style="
+        background-color: rgb(3, 61, 61);
+        border-collapse: collapse;
+        width: 90%;
+        margin: auto;
+        color: white;
+      ">
+        <caption text-align="center ">
+            <h2>
+                <u> GENRE-WISE ANIME </u>
+            </h2>
+        </caption>
+        <tr>
+            <th style="border: 1px solid powderblue; color: white; padding: 8px">
+                <u>GENRE</u>
+            </th>
+            <th style="border: 1px solid powderblue; color: white; padding: 8px">
+                <u>POPULAR-ANIME</u>
+            </th>
+            <th style="border: 1px solid powderblue; color: white; padding: 8px">
+                <u>AVG-RATING</u>
+            </th>
+        </tr>
+        <tr>
+            <td style="padding: 8px; color: aliceblue">ACTION</td>
+            <td style="padding: 8px; color: aliceblue">ONE-PIECE</td>
+            <td style="padding: 8px; color: aliceblue">10</td>
+        </tr>
+        <tr>
+            <td style="padding: 8px; color: aliceblue">ADVENTURE</td>
+            <td style="padding: 8px; color: aliceblue">ATTACK ON TITANS</td>
+            <td style="padding: 8px; color: aliceblue">9.8</td>
+        </tr>
+        <tr>
+            <td style="padding: 8px; color: aliceblue">NINJA</td>
+            <td style="padding: 8px; color: aliceblue">NARUTO:CLASSIC</td>
+            <td style="padding: 8px; color: aliceblue">9.5</td>
+        </tr>
+        <tr>
+            <td style="padding: 8px; color: aliceblue">CRIME</td>
+            <td style="padding: 8px; color: aliceblue">DEATH-NOTE</td>
+            <td style="padding: 8px; color: aliceblue">9.0</td>
+        </tr>
+        <tr>
+            <td style="padding: 8px; color: aliceblue">THRILLER</td>
+            <td style="padding: 8px; color: aliceblue">TAPOKI'S ORIGINAL SINS</td>
+            <td style="padding: 8px; color: aliceblue">9.8</td>
+        </tr>
+    </table>
+    <section class="external">
+        <table>
+            <caption>
+                <h2><u>STUDIO PORTFOLIO</u></h2>
+            </caption>
+            <tr>
+                <th><u>STUDIO</u></th>
+                <th><u>FAMOUS WORKS</u></th>
+                <th><u>AVG RATING</u></th>
+                <th><u>STYLE</u></th>
+            </tr>
+            <tr>
+                <td>UFOTABLE</td>
+                <td>DEMON SLAYER,FATE/ZERO</td>
+                <td>HARUO SOTOZAKI</td>
+                <td>CINEMATIC ACTION</td>
+            </tr>
+            <tr>
+                <td>MAPPA</td>
+                <td>ATTACK ON TITAN(FINAL SEASON),JUJUTSU KAISEN</td>
+                <td>UNGHOO PARK</td>
+                <td>DYNAMIC CAMERA,INTENSE FIGHT CHOREOGRAPHY</td>
+            </tr>
+            <tr>
+                <td>STUDIO GHIBLI</td>
+                <td>SPIRITED AWAY,GRAVE OF FIREFLIES</td>
+                <td>HAYAO MIYAZAKI</td>
+                <td>WORLD-BUILDING WITH ENVIRONMENTAL AND EMOTIONAL DEPTH</td>
+            </tr>
+            <tr>
+                <td>SUNRISE</td>
+                <td>COWBOY</td>
+                <td>SHINICHIRO WATANABE</td>
+                <td>OLDER GANGSTARS</td>
+            </tr>
+        </table>
+    </section>
 </body>
 
 </html>
