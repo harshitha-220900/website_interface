@@ -6,252 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Anime Stream</title>
     <link rel="stylesheet " href="external.css" />
-    <style>
-        body {
-            background-color: rgb(4, 97, 97);
-            display: flex;
-            flex-direction: column;
-        }
-        
-        body a {
-            color: rgb(10, 9, 9);
-            text-decoration: none;
-            font-weight: bold;
-        }
-        
-        a:hover {
-            color: white;
-        }
-        
-        a:h1 {
-            color: rgb(175, 228, 253);
-        }
-        
-        h2 {
-            color: rgb(255, 255, 255);
-            text-align: center;
-        }
-        
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
-            background-color: #96caf5;
-            color: rgb(8, 8, 8);
-        }
-        
-        header.logo {
-            font-size: 26px;
-            font-weight: bold;
-            font-color: rgb(244, 246, 248);
-        }
-        
-        nav {
-            display: flex;
-            gap: 15px;
-        }
-        
-        nav a {
-            color: rgb(24, 23, 23);
-            font-weight: bold;
-        }
-        
-        nav a:hover {
-            color: white;
-        }
-        
-        .nav-form {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-        }
-        
-        .nav-form select {
-            padding: 6px;
-            border-radius: 5px;
-            border: none;
-            background-color: white;
-        }
-        
-        .nav-form input {
-            padding: 6px;
-            border-radius: 5px;
-            border: none;
-            background-color: white;
-        }
-        
-        .nav-form button {
-            padding: 10px 15px;
-            border-radius: 5px;
-            border: none;
-            outline: none;
-        }
-        
-        .nav-form button:hover {
-            background-color: #1a1c1d;
-            color: white;
-        }
-        
-        .hero {
-            text-align: center;
-            background-color: rgb(4, 97, 97);
-            color: white;
-        }
-        
-        .hero h1 {
-            font-size: 36px;
-            margin-bottom: 10px;
-        }
-        
-        .hero p {
-            font-size: 18px;
-            opacity: 0.8;
-        }
-        
-        .section {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        .section h2 {
-            margin-bottom: 15px;
-            font-size: 24px;
-            color: white;
-        }
-        
-        .hero-search input {
-            margin-top: 20px;
-            padding: 10px;
-            width: 300px;
-            font-size: 16px;
-            align-items: center;
-        }
-        
-        .card {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background-color: #96caf5;
-            padding: 10px;
-            border-radius: 8px;
-            width: 220px;
-            overflow: hidden;
-            text-align: center;
-        }
-        
-        .card video {
-            width: 100%;
-            margin-top: 10px;
-            transition: opacity 0.4s ease-in--out;
-        }
-        
-        .card video:hover {
-            opacity: 1;
-        }
-        
-        .card {
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .card-content {
-            position: relative;
-            z-index: 2;
-            color: black;
-        }
-        
-        .grid {
-            display: flex;
-            gap: 25px;
-            flex-wrap: wrap;
-            justify-content: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .card img {
-            width: 100%;
-            height: auto;
-            display: block;
-            border-radius: 8px;
-        }
-        
-        .card.naruto-video {
-            opacity: 0;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: opacity 0.3s ease-in-out;
-        }
-        
-        .card:hover {
-            transform: scale(1.05);
-        }
-        
-        .card p {
-            margin-top: 10px;
-            font-weight: bold;
-        }
-        
-        .onepiece-card audio {
-            margin-top: 10px;
-            width: 100%;
-        }
-        
-        .card :hover {
-            opacity: 1;
-            pointer-events: auto;
-        }
-        
-        .video-featured {
-            width: 100%;
-            max-width: 800px;
-            margin: 0 auto 40px auto;
-            position: relative;
-            padding-bottom: 56.25%;
-        }
-        
-        .video-featured iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-        
-        .internal table {
-            position: relative;
-            top: 0;
-            left: 0;
-            opacity: 1;
-            color: powderblue;
-            width: 90%;
-            height: 100%;
-            margin: 40px auto;
-            border-collapse: collapse;
-            background-color: rgb(3, 61, 61);
-        }
-        
-        .internal th,
-        td {
-            border: 1px solid powderblue;
-            padding: 12px;
-            text-align: center;
-        }
-        
-        .internal th {
-            font-style: bold;
-        }
-        
-        .internal tr:hover {
-            background-color: #1a1c1d;
-        }
-    </style>
 </head>
 
 <body>
@@ -259,8 +13,12 @@
         <div class="logo">An!mStream</div>
         <nav>
             <a href="login.html">Home </a>
-            <a href="# ">Top Anime</a><a href="# ">My List</a>
+            <a href="# ">Top Anime</a>
+            <a href="# ">My List</a>
+            <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+
         </nav>
+
         <form class="nav-form">
             <select>
           <option value="">Genres</option>
@@ -271,10 +29,11 @@
           <option value="fantasy">Fantasy</option>
           <option value="horror">Horror</option>
         </select>
-            <input type="text" placeholder="Search anime..." />
+            <input type="text" id="searchInput" placeholder="Search anime..." onkeyup="searchAnime()" />
             <button type="submit">GO</button>
         </form>
     </header>
+    <hr>
     <section class="hero">
         <h1>WATCH ANIME ONLINE</h1>
         <p>EXPLORE THE LATEST AND GREATEST ANIME SERIES</p>
@@ -478,6 +237,50 @@
             </tr>
         </table>
     </section>
+    <script>
+        // Apply saved theme on page load
+        window.onload = function() {
+            const savedTheme = localStorage.getItem("theme");
+            const toggleBtn = document.querySelector(".theme-toggle");
+
+            if (savedTheme === "light") {
+                document.body.classList.add("light");
+                toggleBtn.textContent = "🌞";
+            }
+        };
+
+        // Toggle theme
+        function toggleTheme() {
+            const toggleBtn = document.querySelector(".theme-toggle");
+
+            document.body.classList.toggle("light");
+
+            if (document.body.classList.contains("light")) {
+                toggleBtn.textContent = "🌞";
+                localStorage.setItem("theme", "light");
+            } else {
+                toggleBtn.textContent = "🌙";
+                localStorage.setItem("theme", "dark");
+            }
+        }
+    </script>
+    <script>
+        function searchAnime() {
+            const input = document.getElementById("searchInput").value.toUpperCase();
+            const cards = document.getElementsByClassName("card");
+
+            for (let i = 0; i < cards.length; i++) {
+                const title = cards[i].innerText.toUpperCase();
+
+                if (title.includes(input)) {
+                    cards[i].style.display = "";
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+
 </body>
 
 </html>

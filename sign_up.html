@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Register </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="auth-body">
+    <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+
+    <form action="registration_pagephp.php" method="post" onsubmit="return validatePassword()">
+        <h2>User Registration</h2>
+        <input type="text" name="username" placeholder="User Name">
+        <br><br>
+        <input type="email" name="email" placeholder="Email">
+        <br><br>
+        <input type="password" name="password" placeholder="Password">
+        <br><br>
+        <input type="password" name="confirm_password" placeholder="Confirm Password"><br><br>
+
+        <button class="primary-btn full" name="register">Register</button>
+
+        <p>Already have an account?</p>
+        <a href="login.html" class="secondary-btn full">Login</a>
+    </form>
+    <script>
+        // Apply saved theme on page load
+        window.onload = function() {
+            const savedTheme = localStorage.getItem("theme");
+            const toggleBtn = document.querySelector(".theme-toggle");
+
+            if (savedTheme === "light") {
+                document.body.classList.add("light");
+                toggleBtn.textContent = "🌞";
+            }
+        };
+
+        // Toggle theme
+        function toggleTheme() {
+            const toggleBtn = document.querySelector(".theme-toggle");
+
+            document.body.classList.toggle("light");
+
+            if (document.body.classList.contains("light")) {
+                toggleBtn.textContent = "🌞";
+                localStorage.setItem("theme", "light");
+            } else {
+                toggleBtn.textContent = "🌙";
+                localStorage.setItem("theme", "dark");
+            }
+        }
+    </script>
+    <script>
+        function validatePassword() {
+            const pwd = document.getElementById("password").value;
+            const cpwd = document.getElementById("confirmPassword").value;
+
+            if (pwd !== cpwd) {
+                alert("Passwords do not match!");
+                return false; // form submit stop
+            }
+
+            alert("Registration successful!");
+            return true;
+        }
+    </script>
+
+
+</body>
+
+</html>

@@ -1,27 +1,323 @@
-.external table {
-    background-color: rgb(3, 61, 61);
-    border-collapse: collapse;
-    border: 1px solid white;
-    align-items: center;
-    margin: auto;
-}
-
-.external td,
-th {
-    color: white;
-    padding: 8px;
-    border: 1px solid powderblue;
-    text-align: center;
-}
-
-.external caption {
-    font-size: 18px;
-    color: white;
-}
-
-.external tr:hover {
-    background-color: rgb(12, 97, 97);
-    cursor: pointer;
-    transition: 0.3s;
-    transform: scale(1.02);
-}
+        body {
+            background: linear-gradient(to left, #021b1b, #063f3f, #0a6e6e);
+            font-family: 'Poppins', sans-serif;
+            color: white;
+        }
+        
+        body a {
+            color: rgb(10, 9, 9);
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        a:hover {
+            color: white;
+        }
+        
+        a:h1 {
+            color: rgb(175, 228, 253);
+        }
+        
+        h2 {
+            color: rgb(255, 255, 255);
+            text-align: center;
+        }
+        
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background: linear-gradient(to left, #021b1b, #063f3f, #0a6e6e);
+            color: rgb(8, 8, 8);
+        }
+        
+        header.logo {
+            font-size: 26px;
+            font-weight: bold;
+            font-color: rgb(244, 246, 248);
+        }
+        
+        nav a {
+            position: relative;
+            padding-bottom: 5px;
+        }
+        
+        nav a::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            left: 0;
+            bottom: 0;
+            background: #00eaff;
+            transition: 0.3s;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        .nav-form {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        
+        .nav-form select {
+            padding: 6px;
+            border-radius: 5px;
+            border: none;
+            background-color: white;
+        }
+        
+        .nav-form input {
+            padding: 6px;
+            border-radius: 5px;
+            border: none;
+            background-color: white;
+        }
+        
+        .nav-form button {
+            padding: 10px 15px;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+        }
+        
+        .nav-form button:hover {
+            background-color: #1a1c1d;
+            color: white;
+        }
+        
+        .hero {
+            padding: 80px 20px;
+            background: linear-gradient(to left, #021b1b, #063f3f, #0a6e6e), url("anime-bg.jpg") center/cover;
+            animation: fadeIn 1.2s ease;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        
+        .hero p {
+            font-size: 18px;
+            opacity: 0.8;
+        }
+        
+        .section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .section h2 {
+            margin-bottom: 15px;
+            font-size: 24px;
+            color: white;
+        }
+        
+        .hero-search input {
+            margin-top: 20px;
+            padding: 10px;
+            width: 300px;
+            font-size: 16px;
+            align-items: center;
+        }
+        
+        .card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(8px);
+            border-radius: 15px;
+            padding: 15px;
+            width: 220px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .card video {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
+        .card:hover video {
+            opacity: 1;
+        }
+        
+        .card video:hover {
+            opacity: 1;
+        }
+        
+        .card {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card-content {
+            position: relative;
+            z-index: 2;
+            color: black;
+        }
+        
+        .grid {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .card img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+        }
+        
+        .card.naruto-video {
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.3s ease-in-out;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px) scale(1.07);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+        
+        .card p {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        
+        .onepiece-card audio {
+            margin-top: 10px;
+            width: 100%;
+        }
+        
+        .card :hover {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        
+        .video-featured {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+            position: relative;
+            padding-bottom: 56.25%;
+        }
+        
+        .video-featured iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .internal table {
+            position: relative;
+            top: 0;
+            left: 0;
+            opacity: 1;
+            color: powderblue;
+            width: 90%;
+            height: 100%;
+            margin: 40px auto;
+            border-collapse: collapse;
+            background-color: rgb(3, 61, 61);
+        }
+        
+        .internal th,
+        td {
+            border: 1px solid powderblue;
+            padding: 12px;
+            text-align: center;
+        }
+        
+        .internal th {
+            font-style: bold;
+        }
+        
+        .internal tr:hover {
+            background-color: #1a1c1d;
+        }
+        
+        .external table {
+            position: relative;
+            top: 0;
+            left: 0;
+            opacity: 1;
+            color: powderblue;
+            width: 90%;
+            height: 100%;
+            margin: 40px auto;
+            border-collapse: collapse;
+            background-color: rgb(3, 61, 61);
+        }
+        
+        .external th,
+        td {
+            border: 1px solid powderblue;
+            padding: 12px;
+            text-align: center;
+        }
+        
+        .external th {
+            font-weight: bold;
+        }
+        
+        .external tr:hover {
+            background-color: #1a1c1d;
+        }
+        
+        body.light {
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+        }
+        
+        body.light form {
+            background: white;
+            color: black;
+        }
+        
+        body.light input {
+            background: #f2f2f2;
+        }
+        
+        .theme-toggle {
+            position: auto;
+            top: 20px;
+            right: 20px;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            border: 2px solid white;
+            background: none;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+        }
