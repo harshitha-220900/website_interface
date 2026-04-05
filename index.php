@@ -7,7 +7,7 @@
 
 <h2>Upload File</h2>
 
-<form action="upload.php" method="POST" enctype="multipart/form-data">
+<form action="file_manager/upload.php" method="POST" enctype="multipart/form-data">
     Select file:
     <input type="file" name="myfile" required>
     <input type="submit" value="Upload">
@@ -30,8 +30,8 @@ if (is_dir($folder)) {
             echo "Size: " . filesize($folder.$file) . " bytes<br>";
             echo "Last Modified: " . date("Y-m-d H:i:s", filemtime($folder.$file)) . "<br>";
 
-            echo "<a href='download.php?file=$file'>Download</a> | ";
-            echo "<a href='delete.php?file=$file'>Delete</a>";
+            echo "<a href='file_manager/download.php?file=$file'>Download</a> | ";
+            echo "<a href='file_manager/delete.php?file=$file'>Delete</a>";
 
             echo "<hr>";
         }
@@ -41,3 +41,4 @@ if (is_dir($folder)) {
 
 </body>
 </html>
+
