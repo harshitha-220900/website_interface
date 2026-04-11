@@ -1,0 +1,2 @@
+The dataset was successfully loaded,cleaned,and analyzed using Python libraries such as Pandas,Numpy,Matplotlib and Seaborn.
+Missing values were handled effectively to ensure data consistency.Visualizations such as histogram ,bar graph, box plot, heat map and scatter plot has provided a clear insight of the customer dataset.

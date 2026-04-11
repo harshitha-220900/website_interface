@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Register | An!mStream</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="auth-body">
+    <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+
+    <form action="registration_logic.php" method="post" onsubmit="return validatePassword()">
+        <h2>User Registration</h2>
+        <input type="text" name="username" id="username" placeholder="User Name" required>
+        <br><br>
+        <input type="email" name="email" id="email" placeholder="Email" required>
+        <br><br>
+        <input type="password" name="password" id="password" placeholder="Password" required>
+        <br><br>
+        <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm Password" required><br><br>
+
+        <button class="primary-btn full" name="register">Register</button>
+
+        <p>Already have an account?</p>
+        <a href="sign_in.html" class="secondary-btn full">Sign In</a>
+    </form>
+    <script>
+        // Apply saved theme on page load
+        window.onload = function() {
+            const savedTheme = localStorage.getItem("theme");
+            const toggleBtn = document.querySelector(".theme-toggle");
+
+            if (savedTheme === "light") {
+                document.body.classList.add("light");
+                toggleBtn.textContent = "🌞";
+            }
+        };
+
+        // Toggle theme
+        function toggleTheme() {
+            const toggleBtn = document.querySelector(".theme-toggle");
+
+            document.body.classList.toggle("light");
+
+            if (document.body.classList.contains("light")) {
+                toggleBtn.textContent = "🌞";
+                localStorage.setItem("theme", "light");
+            } else {
+                toggleBtn.textContent = "🌙";
+                localStorage.setItem("theme", "dark");
+            }
+        }
+
+        function validatePassword() {
+            const pwd = document.getElementById("password").value;
+            const cpwd = document.getElementById("confirm_password").value;
+
+            if (pwd !== cpwd) {
+                alert("Passwords do not match!");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+
+</html>

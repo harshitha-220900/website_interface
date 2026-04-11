@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sign In | An!mStream</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="auth-body">
+    <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+
+    <form action="sign_in_logic.php" method="post">
+        <h2>User Login</h2>
+        <?php if(isset($_GET['signup']) && $_GET['signup'] == 'success'): ?>
+            <p style="color: green;">Registration successful! Please login.</p>
+        <?php endif; ?>
+        <input type="text" name="username_email" placeholder="Username or Email" required>
+        <br><br>
+        <input type="password" name="password" placeholder="Password" required>
+        <br><br>
+
+        <button class="primary-btn full" name="login">Login</button>
+
+        <p>New user?</p>
+        <a href="register.html" class="secondary-btn full">Register</a>
+    </form>
+    <script>
+        // Apply saved theme on page load
+        window.onload = function() {
+            const savedTheme = localStorage.getItem("theme");
+            const toggleBtn = document.querySelector(".theme-toggle");
+
+            if (savedTheme === "light") {
+                document.body.classList.add("light");
+                toggleBtn.textContent = "🌞";
+            }
+        };
+
+        // Toggle theme
+        function toggleTheme() {
+            const toggleBtn = document.querySelector(".theme-toggle");
+
+            document.body.classList.toggle("light");
+
+            if (document.body.classList.contains("light")) {
+                toggleBtn.textContent = "🌞";
+                localStorage.setItem("theme", "light");
+            } else {
+                toggleBtn.textContent = "🌙";
+                localStorage.setItem("theme", "dark");
+            }
+        }
+    </script>
+</body>
+
+</html>
