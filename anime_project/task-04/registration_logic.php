@@ -1,10 +1,10 @@
 <?php
 session_start();
-require_once 'db_info.php';
+require_once 'db_info.php'; // This now provides $users_collection
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['register'])) {
-    $username = mysqli_real_escape_string($conn, $_POST['username']);
-    $email = mysqli_real_escape_string($conn, $_POST['email']);
+    $username = $_POST['username'];
+    $email = $_POST['email'];
     $password = $_POST['password'];
     $confirm_password = $_POST['confirm_password'];
 
@@ -18,9 +18,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['register'])) {
     }
 
     // Check if user already exists
-    $check_user = "SELECT * FROM users_info WHERE username='$username' OR email='$email'";
-    $result = mysqli_query($conn, $check_user);
-    if (mysqli_num_rows($result) > 0) {
+    // MongoDB usage: findOne with $or operator
+    $existingUser = $users_collection->findOne([
+        '$or' => [
+            ['username' => $username],
+            ['email' => $email]
+        ]
+    ]);
+
+    if ($existingUser) {
         die("Username or Email already exists. <a href='register.html'>Try again</a>");
     }
 
@@ -28,22 +34,31 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['register'])) {
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
     // Insert user
-    $sql = "INSERT INTO users_info (username, email, password) VALUES ('$username', '$email', '$hashed_password')";
+    try {
+        $result = $users_collection->insertOne([
+            'username' => $username,
+            'email' => $email,
+            'password' => $hashed_password,
+            'created_at' => new MongoDB\BSON\UTCDateTime()
+        ]);
 
-    if (mysqli_query($conn, $sql)) {
-        // Fetch the user ID of the inserted record
-        $user_id = mysqli_insert_id($conn);
-        
-        // Auto-login the user
-        $_SESSION['user_id'] = $user_id;
-        $_SESSION['username'] = $username;
-        $_SESSION['email'] = $email;
+        if ($result->getInsertedCount() === 1) {
+            // Fetch the user ID (MongoDB ObjectId converted to string)
+            $user_id = (string)$result->getInsertedId();
+            
+            // Auto-login the user
+            $_SESSION['user_id'] = $user_id;
+            $_SESSION['username'] = $username;
+            $_SESSION['email'] = $email;
 
-        // Redirect to the dashboard
-        header("Location: ../home_page.php");
-        exit();
-    } else {
-        echo "Error: " . mysqli_error($conn);
+            // Redirect to the dashboard
+            header("Location: ../home_page.php");
+            exit();
+        } else {
+            die("Error joining the anime world. Please try again.");
+        }
+    } catch (Exception $e) {
+        die("Error: " . $e->getMessage());
     }
 } else {
     header("Location: register.html");
